@@ -8,6 +8,9 @@ import 'package:success_motors/screens/models/product_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import 'dart:math';
+
+import 'package:intl/intl.dart';
+
 import 'home_screen.dart';
 
 class CartItem {
@@ -108,6 +111,11 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     return 'FB${DateTime.now().millisecondsSinceEpoch}${random.nextInt(99)}';
   }
 
+  String _formatPrice(int price) {
+    final formatter = NumberFormat("#,###");
+    return formatter.format(price);
+  }
+
   Future<void> _placeOrder() async {
     if (!_formKey.currentState!.validate()) return;
 
@@ -200,7 +208,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 ),
               ),
               Text(
-                'Total: UGX $grandTotal',
+                'Total: UGX ${_formatPrice(grandTotal)}',
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -371,7 +379,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     ),
                   ),
                 ),
-
           bottomSheet: SafeArea(
             child: Container(
               padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
@@ -411,7 +418,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ),
           ),
         ),
-
         Align(
           alignment: Alignment.topCenter,
           child: ConfettiWidget(
@@ -434,6 +440,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   Widget _cartSummaryItem(CartItem item) => Padding(
     padding: const EdgeInsets.symmetric(vertical: 12),
     child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
@@ -481,7 +488,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Text(
                 item.product.name,
                 style: const TextStyle(fontWeight: FontWeight.w600),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
               ),
+              const SizedBox(height: 4),
               Text(
                 'x${item.quantity}',
                 style: TextStyle(color: Colors.grey[600]),
@@ -489,9 +499,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             ],
           ),
         ),
+        const SizedBox(width: 12),
         Text(
-          'UGX ${item.product.price * item.quantity}',
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          'UGX ${_formatPrice(item.product.price * item.quantity)}',
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 15, // slightly smaller to help on narrow screens
+          ),
+          textAlign: TextAlign.right,
         ),
       ],
     ),
@@ -606,15 +621,17 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 title,
                 style: const TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 16,
+                  fontSize: 15, // slightly reduced for narrow screens
                 ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
             if (isDefault)
               Container(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
+                  horizontal: 10,
+                  vertical: 5,
                 ),
                 decoration: BoxDecoration(
                   color: const Color(0xFF2E7D32),
@@ -624,14 +641,14 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   'Default',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 11,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
           ],
         ),
-        subtitle: Text(subtitle),
+        subtitle: Text(subtitle, style: const TextStyle(fontSize: 13)),
         controlAffinity: ListTileControlAffinity.trailing,
       ),
     );
@@ -643,17 +660,24 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: isTotal ? 22 : 18,
-                fontWeight: isTotal ? FontWeight.bold : FontWeight.w500,
+            Expanded(
+              child: Text(
+                label,
+                style: TextStyle(
+                  fontSize: isTotal ? 20 : 16, // reduced slightly
+                  fontWeight: isTotal ? FontWeight.bold : FontWeight.w500,
+                ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
+            const SizedBox(width: 12),
             Text(
-              'UGX $amount',
+              'UGX ${_formatPrice(amount)}',
               style: TextStyle(
-                fontSize: isTotal ? 28 : 20,
+                fontSize: isTotal
+                    ? 24
+                    : 18, // slightly reduced for long numbers
                 fontWeight: FontWeight.bold,
                 color: isTotal ? const Color(0xFF2E7D32) : null,
               ),

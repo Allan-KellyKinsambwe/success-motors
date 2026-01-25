@@ -8,6 +8,8 @@ import 'package:success_motors/screens/wishlist_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
+import 'package:intl/intl.dart'; // ← Added for number formatting
+
 import 'home_screen.dart';
 import 'checkout_screen.dart';
 
@@ -85,6 +87,12 @@ class _CartScreenState extends State<CartScreen> {
     (sum, item) => sum + item.product.price * item.quantity,
   );
 
+  // Helper to format prices with commas
+  String _formatPrice(int price) {
+    final formatter = NumberFormat("#,###");
+    return formatter.format(price);
+  }
+
   void _navigateTo(int index) {
     final screens = [
       HomeScreen(),
@@ -152,7 +160,6 @@ class _CartScreenState extends State<CartScreen> {
                     padding: const EdgeInsets.all(12),
                     child: Row(
                       children: [
-                        // === FIXED IMAGE DISPLAY ===
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: item.product.image.startsWith('http')
@@ -210,7 +217,7 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                'UGX ${item.product.price}',
+                                'UGX ${_formatPrice(item.product.price)}',
                                 style: TextStyle(
                                   color: Colors.grey[600],
                                   fontSize: 14,
@@ -247,7 +254,7 @@ class _CartScreenState extends State<CartScreen> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              'UGX $itemTotal',
+                              'UGX ${_formatPrice(itemTotal)}',
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -277,15 +284,19 @@ class _CartScreenState extends State<CartScreen> {
               ),
               child: Row(
                 children: [
-                  Text(
-                    'Total: UGX $totalPrice',
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF2E7D32),
+                  Expanded(
+                    child: Text(
+                      'Total: UGX ${_formatPrice(totalPrice)}',
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF2E7D32),
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                     ),
                   ),
-                  const Spacer(),
+                  const SizedBox(width: 16),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -298,8 +309,8 @@ class _CartScreenState extends State<CartScreen> {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2E7D32),
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 32,
-                        vertical: 14,
+                        horizontal: 24,
+                        vertical: 12,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -307,7 +318,7 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                     child: const Text(
                       'Checkout',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
                 ],

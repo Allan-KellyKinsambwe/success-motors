@@ -11,6 +11,8 @@ import 'product_detail_screen.dart';
 import 'profile_screen.dart';
 import 'wishlist_screen.dart';
 
+import 'package:intl/intl.dart'; // added for price formatting
+
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
 
@@ -270,6 +272,11 @@ class _CategoryScreenState extends State<CategoryScreen> {
     return allProducts.where((p) => p.category == selectedCategory).toList();
   }
 
+  String _formatPrice(int price) {
+    final formatter = NumberFormat("#,###");
+    return formatter.format(price);
+  }
+
   void _navigateTo(int index) {
     final screens = [
       const HomeScreen(),
@@ -518,20 +525,25 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        p.name,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
+                                      // Product name - now safely constrained
+                                      Flexible(
+                                        flex: 2,
+                                        child: Text(
+                                          p.name,
+                                          style: const TextStyle(
+                                            fontSize: 14, // was 15
+                                            fontWeight: FontWeight.bold,
+                                            height: 1.2,
+                                          ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
                                       ),
                                       const SizedBox(height: 4),
                                       Text(
-                                        'UGX ${p.price.toString().replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},')}',
+                                        'UGX ${_formatPrice(p.price)}',
                                         style: const TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 15, // was 16
                                           fontWeight: FontWeight.bold,
                                           color: Color(0xFF2E7D32),
                                         ),

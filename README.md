@@ -24,7 +24,7 @@ Buy, rent, finance, service, and explore vehicles with ease.
   <img src="screenshots/6s.png" width="24%" alt="Signup" />
   <img src="screenshots/7.png" width="24%" alt="Car loan hub" />
   <img src="screenshots/9.png" width="24%" alt="Online garage" />
-  <img src="screenshots/15 h.png" width="24%" alt="Home Screen" />
+  <img src="screenshots/15h.png" width="24%" alt="Home Screen" />
   
   <img src="screenshots/10.png" width="24%" alt="Categories " />
   <img src="screenshots/11.png" width="24%" alt="profile" />
@@ -66,4 +66,8 @@ flutter pub get
 
 # Run on device/emulator
 flutter run
+
+## FOLLOW ME ON TIKTOK 
+Swift App Crafting 
+https://www.tiktok.com/@swiftappcrafting?is_from_webapp=1&sender_device=pc
 
