@@ -12,7 +12,7 @@
 .swiftpm/
 migrate_working_dir/
 
-# IntelliJ related
+# IntelliJ / Android Studio related
 *.iml
 *.ipr
 *.iws
@@ -44,7 +44,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-
 # Android signing / secrets
 android/key.properties
 android/app/release.keystore
@@ -59,13 +58,13 @@ ios/Runner/GoogleService-Info-*.plist
 # Firebase sensitive / config files (very important!)
 android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
-lib/firebase_options.dart          # ← your main concern
+lib/firebase_options.dart
 lib/firebase_options.g.dart
-lib/firebase_options_dev.dart      # if you have multiple environments
-web/firebase-config.js             # if you have web config
+lib/firebase_options_dev.dart
+web/firebase-config.js
 firebase.json
 .firebaserc
 *.firebase
 
-# Screens folder (important folder to keep private / not upload)
+# Screens folder (do NOT upload this – your request)
 screens/
