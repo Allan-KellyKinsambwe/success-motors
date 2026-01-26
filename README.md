@@ -85,13 +85,15 @@ Buy, rent, finance, service, and explore vehicles with ease.
 **Screen Recording**  
 Full high-quality walkthrough of customer + admin flows (original sharp version, ~157 MB):
 
+**Screen Recording**  
+Full high-quality original demo (~157 MB – sharp version):
+
 <p align="center">
-  <iframe src="https://drive.google.com/file/d/1STAjQR5u3myEsB2GSC-7BYArzdTxpP8g/preview" 
-          width="80%" 
-          height="480" 
-          allow="autoplay; fullscreen" 
-          allowfullscreen></iframe><br>
-  Full quality preserved – hosted on Google Drive. Plays in most browsers (may buffer on slow connections).
+  <a href="https://drive.google.com/file/d/1STAjQR5u3myEsB2GSC-7BYArzdTxpP8g/view?usp=sharing">
+    <img src="screenshots/demo-thumbnail.jpg" alt="Success Motors Demo Preview" width="80%" />
+    <br><strong>Click to watch / download high-quality video on Google Drive</strong>
+  </a><br>
+  (Opens in browser – full sharpness preserved)
 </p>
 
 
