@@ -45,6 +45,27 @@ app.*.map.json
 /android/app/release
 
 
-# Android signing files
+# Android signing / secrets
 android/key.properties
-android/upload-keystore.jks
+android/app/release.keystore
+android/app/debug.keystore
+android/app/*.jks
+android/app/*.keystore
+
+# iOS signing / secrets
+ios/Runner/Runner.entitlements
+ios/Runner/GoogleService-Info-*.plist
+
+# Firebase sensitive / config files (very important!)
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+lib/firebase_options.dart          # ← your main concern
+lib/firebase_options.g.dart
+lib/firebase_options_dev.dart      # if you have multiple environments
+web/firebase-config.js             # if you have web config
+firebase.json
+.firebaserc
+*.firebase
+
+# Screens folder (important folder to keep private / not upload)
+screens/
