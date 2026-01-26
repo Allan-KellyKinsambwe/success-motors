@@ -83,19 +83,15 @@ Buy, rent, finance, service, and explore vehicles with ease.
 </p>
 
 **Screen Recording**  
+Full high-quality walkthrough of customer + admin flows (original sharp version, ~157 MB):
+
 <p align="center">
-  <strong>Screen Recording</strong><br>
-  Short walkthrough of customer + admin flows (auto-plays muted):<br>
-  <video src="screenshots/SuccessMotors_Demo.mp4" 
-         autoplay 
-         loop 
-         muted 
-         playsinline 
-         controls 
-         width="80%">
-    Your browser does not support the video tag.
-  </video><br>
-  (~12 MB MP4)
+  <iframe src="https://drive.google.com/file/d/1STAjQR5u3myEsB2GSC-7BYArzdTxpP8g/preview" 
+          width="80%" 
+          height="480" 
+          allow="autoplay; fullscreen" 
+          allowfullscreen></iframe><br>
+  Full quality preserved – hosted on Google Drive. Plays in most browsers (may buffer on slow connections).
 </p>
 
 
