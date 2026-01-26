@@ -83,14 +83,20 @@ Buy, rent, finance, service, and explore vehicles with ease.
 </p>
 
 **Screen Recording**  
-<p align="center">
-  <strong>Screen Recording</strong><br>
-  Short walkthrough of customer + admin flows (click to play):<br>
-  <a href="https://github.com/Allan-KellyKinsambwe/success-motors/raw/main/screenshots/SuccessMotors_Demo.mp4">
-    <img src="screenshots/demo-thumbnail.png" alt="Success Motors Demo" width="60%" />
-  </a><br>
-  (~12 MB MP4)
-</p>
+**Screen Recording**  
+Short walkthrough of customer + admin flows (auto-plays muted on load):
+
+<video src="screenshots/SuccessMotors_Demo.mp4" 
+       autoplay 
+       loop 
+       muted 
+       playsinline 
+       controls 
+       width="100%">
+  Your browser does not support the video tag.
+</video>
+
+
 
 ## Tech Stack
 
