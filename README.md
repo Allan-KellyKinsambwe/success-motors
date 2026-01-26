@@ -414,21 +414,17 @@ https://www.tiktok.com/@swiftappcrafting?is_from_webapp=1&sender_device=pc
 
 ## Contributors
 
-Thanks goes to these wonderful people:
+Thanks goes to these wonderful people!
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/Allan-KellyKinsambwe">
-        <img src="https://github.com/Allan-KellyKinsambwe.png?size=100" width="100px;" alt="Allan Kelly Kinsambwe"/>
-        <br />
-        <sub><b>Allan Kelly Kinsambwe</b></sub>
-      </a>
-      <br />
-      <sub>Maintainer & Lead Developer</sub>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <a href="https://github.com/Allan-KellyKinsambwe">
+    <img src="https://github.com/Allan-KellyKinsambwe.png" width="120px;" alt="Allan Kelly Kinsambwe"/>
+    <br />
+    <sub><b>Allan Kelly Kinsambwe</b></sub>
+  </a>
+  <br />
+  <sub>Maintainer & Lead Developer</sub>
+</p>
 
 Want to contribute? Feel free to open issues, submit pull requests, or reach out!
 
