@@ -382,6 +382,8 @@ service firebase.storage {
 
 
 **PROJECT STRUCTURE**
+
+```text
 lib/
 ├── auth/                     # splash, welcome, onboarding, login, signup, email verification
 ├── screens/
