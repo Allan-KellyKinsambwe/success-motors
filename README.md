@@ -83,18 +83,22 @@ Buy, rent, finance, service, and explore vehicles with ease.
 </p>
 
 **Screen Recording**  
-**Screen Recording**  
-Short walkthrough of customer + admin flows (auto-plays muted on load):
+<p align="center">
+  <strong>Screen Recording</strong><br>
+  Short walkthrough of customer + admin flows (auto-plays muted):<br>
+  <video src="screenshots/SuccessMotors_Demo.mp4" 
+         autoplay 
+         loop 
+         muted 
+         playsinline 
+         controls 
+         width="80%">
+    Your browser does not support the video tag.
+  </video><br>
+  (~12 MB MP4)
+</p>
 
-<video src="screenshots/SuccessMotors_Demo.mp4" 
-       autoplay 
-       loop 
-       muted 
-       playsinline 
-       controls 
-       width="100%">
-  Your browser does not support the video tag.
-</video>
+
 
 
 
