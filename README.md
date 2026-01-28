@@ -83,10 +83,10 @@ Buy, rent, finance, service, and explore vehicles with ease.
 </p>
 
 **Screen Recording**  
-Full high-quality walkthrough of customer + admin flows (original sharp version):
+Full high-quality walkthrough of customer + admin flows (original sharp version, 10.5 MB):
 
 <p align="center">
-  <video src="https://github.com/Allan-KellyKinsambwe/success-motors/assets/YOUR_ACTUAL_ASSET_ID_HERE/Preview.mp4" 
+  <video src="https://github.com/user-attachments/assets/YOUR-COPIED-UUID-HERE" 
          controls 
          width="80%" 
          autoplay 
@@ -98,6 +98,8 @@ Full high-quality walkthrough of customer + admin flows (original sharp version)
   <br>
   <strong>Inline demo video – plays automatically (muted), click for controls</strong>
 </p>
+
+
 
 ## Tech Stack
 

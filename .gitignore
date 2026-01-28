@@ -61,3 +61,20 @@ Thumbs.db
 ehthumbs.db
 
 screens/
+
+# Firebase config (contains API key!)
+lib/firebase_options.dart
+lib/firebase_options.g.dart
+lib/firebase_options_dev.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Firebase config files (contains API key!)
+lib/firebase_options.dart
+lib/firebase_options.g.dart
+lib/firebase_options_dev.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# Your constants folder
+lib/constants/
