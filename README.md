@@ -60,20 +60,20 @@ Buy, rent, finance, service, and explore vehicles with ease.
   <img src="screenshots/9.png" width="24%" alt="Online garage" />
   <img src="screenshots/15 h.png" width="24%" alt="Home Screen" />
  
-  <img src="screenshots/10.png" width="24%" alt="Categories " />
-  <img src="screenshots/11.png" width="24%" alt="profile" />
-  <img src="screenshots/12.png" width="24%" alt="car cart" />
+  <img src="screenshots/10.png" width="24%" alt="Categories" />
+  <img src="screenshots/11.png" width="24%" alt="Profile" />
+  <img src="screenshots/12.png" width="24%" alt="Car cart" />
   <img src="screenshots/13.png" width="24%" alt="Car rentals" />
-  <img src="screenshots/14.png" width="24%" alt="car loan" />
-  <img src="screenshots/15.png" width="24%" alt="home" />
+  <img src="screenshots/14.png" width="24%" alt="Car loan" />
+  <img src="screenshots/15.png" width="24%" alt="Home" />
   <img src="screenshots/16.png" width="24%" alt="Car wishlist" />
-  <img src="screenshots/17.png" width="24%" alt="reset password" />
+  <img src="screenshots/17.png" width="24%" alt="Reset password" />
 </p>
 
 <p align="center">
-  <img src="screenshots/18.png" width="32%" alt="1" />
-  <img src="screenshots/19.png" width="32%" alt="2" />
-  <img src="screenshots/20.png" width="32%" alt="3" />
+  <img src="screenshots/18.png" width="32%" alt="Screen 18" />
+  <img src="screenshots/19.png" width="32%" alt="Screen 19" />
+  <img src="screenshots/20.png" width="32%" alt="Screen 20" />
 </p>
 
 <p align="center">
@@ -83,22 +83,21 @@ Buy, rent, finance, service, and explore vehicles with ease.
 </p>
 
 **Screen Recording**  
-Full high-quality walkthrough of customer + admin flows (original sharp version, ~157 MB):
-
-**Screen Recording**  
-Full high-quality original demo (~157 MB – sharp version):
+Full high-quality walkthrough of customer + admin flows (original sharp version):
 
 <p align="center">
-  <a href="https://drive.google.com/file/d/1STAjQR5u3myEsB2GSC-7BYArzdTxpP8g/view?usp=sharing">
-    <img src="screenshots/demo-thumbnail.jpg" alt="Success Motors Demo Preview" width="80%" />
-    <br><strong>Click to watch / download high-quality video on Google Drive</strong>
-  </a><br>
-  (Opens in browser – full sharpness preserved)
+  <video src="https://github.com/Allan-KellyKinsambwe/success-motors/assets/YOUR_ACTUAL_ASSET_ID_HERE/Preview.mp4" 
+         controls 
+         width="80%" 
+         autoplay 
+         loop 
+         muted 
+         playsinline>
+    Your browser does not support the video tag.
+  </video>
+  <br>
+  <strong>Inline demo video – plays automatically (muted), click for controls</strong>
 </p>
-
-
-
-
 
 ## Tech Stack
 
@@ -111,7 +110,7 @@ Full high-quality original demo (~157 MB – sharp version):
 
 ## Setup & Run
 
-
+```bash
 # Clone the repo
 git clone https://github.com/Allan-KellyKinsambwe/success-motors.git
 cd success-motors
@@ -132,27 +131,17 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
-    // ────────────────────────────────────────────────
-    // Helper: Check if current user is admin
-    // ────────────────────────────────────────────────
     function isAdmin() {
       return request.auth != null &&
-             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
-             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+             exists(/databases/$$   (database)/documents/users/   $$(request.auth.uid)) &&
+             get(/databases/$$   (database)/documents/users/   $$(request.auth.uid)).data.isAdmin == true;
     }
 
-    // ────────────────────────────────────────────────
-    // USERS collection
-    // ────────────────────────────────────────────────
     match /users/{userId} {
-      allow read: if request.auth != null;                    // logged-in users can read any profile (common pattern)
+      allow read: if request.auth != null;
       allow write: if request.auth != null && request.auth.uid == userId;
-      // Suggestion: consider allow update only (not create/delete) if profiles are created at signup
     }
 
-    // ────────────────────────────────────────────────
-    // ORDERS
-    // ────────────────────────────────────────────────
     match /orders/{orderId} {
       allow read: if request.auth != null &&
                    (resource.data.user_id == request.auth.uid || isAdmin());
@@ -169,9 +158,6 @@ service cloud.firestore {
       allow update, delete: if isAdmin();
     }
 
-    // ────────────────────────────────────────────────
-    // GARAGE BOOKINGS
-    // ────────────────────────────────────────────────
     match /garage_bookings/{bookingId} {
       allow read, list: if request.auth != null &&
                         resource.data.userId == request.auth.uid;
@@ -187,13 +173,9 @@ service cloud.firestore {
       allow update: if request.auth != null && resource.data.userId == request.auth.uid;
       allow delete: if isAdmin();
 
-      // Admin full access
       allow read, write, list, create, update, delete: if isAdmin();
     }
 
-    // ────────────────────────────────────────────────
-    // RENTAL BOOKINGS
-    // ────────────────────────────────────────────────
     match /rental_bookings/{bookingId} {
       allow read, list: if request.auth != null &&
                         resource.data.userId == request.auth.uid;
@@ -210,13 +192,9 @@ service cloud.firestore {
       allow update: if request.auth != null && resource.data.userId == request.auth.uid;
       allow delete: if isAdmin();
 
-      // Admin full access
       allow read, write, list, create, update, delete: if isAdmin();
     }
 
-    // ────────────────────────────────────────────────
-    // PRODUCTS & CATEGORIES (public read)
-    // ────────────────────────────────────────────────
     match /{path=**}/products/{doc} {
       allow read: if true;
       allow write: if isAdmin();
@@ -227,9 +205,6 @@ service cloud.firestore {
       allow write: if isAdmin();
     }
 
-    // ────────────────────────────────────────────────
-    // NOTIFICATIONS (user-specific)
-    // ────────────────────────────────────────────────
     match /notifications/{notifId} {
       allow read, list: if request.auth != null &&
                          resource.data.userId == request.auth.uid;
@@ -238,26 +213,16 @@ service cloud.firestore {
       allow update: if request.auth != null && resource.data.userId == request.auth.uid;
     }
 
-    // ────────────────────────────────────────────────
-    // PROMOTIONS (broadcast from admin)
-    // ────────────────────────────────────────────────
     match /promotions/{promoId} {
       allow create: if isAdmin();
       allow read: if request.auth != null;
     }
 
-    // ────────────────────────────────────────────────
-    // DELIVERY GUYS (admin only)
-    // ────────────────────────────────────────────────
     match /delivery_guys/{doc} {
       allow read, write: if isAdmin();
     }
 
-    // ────────────────────────────────────────────────
-    // LIVE CHAT SUPPORT (very strict rules)
-    // ────────────────────────────────────────────────
     match /live_chats/{chatId} {
-      // Only support chats following pattern support_chat_{uid}
       allow list: if isAdmin();
 
       allow read, write: if request.auth != null &&
@@ -276,12 +241,10 @@ service cloud.firestore {
                          request.resource.data.isSupport is bool &&
                          request.resource.data.timestamp is timestamp &&
                          (
-                           // Customer message
                            (chatId == 'support_chat_' + request.auth.uid &&
                             request.resource.data.isSupport == false &&
                             request.resource.data.userId == request.auth.uid)
                            ||
-                           // Admin/support message
                            (isAdmin() && request.resource.data.isSupport == true)
                          );
 
@@ -290,21 +253,15 @@ service cloud.firestore {
                          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']) &&
                          request.resource.data.read == true;
 
-        allow delete: if false;  // never allow delete
+        allow delete: if false;
       }
     }
 
-    // ────────────────────────────────────────────────
-    // RENTAL CARS (public read)
-    // ────────────────────────────────────────────────
     match /rental_cars/{carId} {
       allow read: if true;
       allow create, update, delete: if isAdmin();
     }
 
-    // ────────────────────────────────────────────────
-    // LOAN APPLICATIONS (tight control – users create, admins manage)
-    // ────────────────────────────────────────────────
     match /loan_applications/{applicationId} {
       allow create: if request.auth != null
                     && request.resource.data.userId == request.auth.uid
@@ -326,7 +283,7 @@ service cloud.firestore {
                      isAdmin()
                    );
 
-      allow update: if isAdmin();     // only admins can approve/reject/add notes/change status
+      allow update: if isAdmin();
       allow delete: if isAdmin();
     }
   }
@@ -338,42 +295,30 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
 
-    // ────────────────────────────────────────────────
-    // Profile pictures – users manage their own
-    // ────────────────────────────────────────────────
     match /profile_pictures/{userId}/{allPaths=**} {
       allow read: if true;
       allow write: if request.auth != null
                     && request.auth.uid == userId
-                    && request.resource.size < 10 * 1024 * 1024   // 10 MB
-                    && request.resource.contentType.matches('image/.*');
-    }
-
-    // ────────────────────────────────────────────────
-    // Product & Rental car images – public read, admin write
-    // ────────────────────────────────────────────────
-    match /products/{allPaths=**} {
-      allow read: if true;
-      allow write: if request.auth != null
-                    && get(/databases/$(default)/documents/users/$(request.auth.uid)).data.isAdmin == true
                     && request.resource.size < 10 * 1024 * 1024
                     && request.resource.contentType.matches('image/.*');
     }
 
-    // ────────────────────────────────────────────────
-    // Loan application documents – strictly user-owned
-    // ────────────────────────────────────────────────
+    match /products/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+                    && get(/databases/$$   (default)/documents/users/   $$(request.auth.uid)).data.isAdmin == true
+                    && request.resource.size < 10 * 1024 * 1024
+                    && request.resource.contentType.matches('image/.*');
+    }
+
     match /loan_docs/{userId}/{allPaths=**} {
       allow read: if request.auth != null && request.auth.uid == userId;
       allow write: if request.auth != null
                     && request.auth.uid == userId
-                    && request.resource.size < 8 * 1024 * 1024     // 8 MB – stricter limit
+                    && request.resource.size < 8 * 1024 * 1024
                     && request.resource.contentType.matches('image/.*');
     }
 
-    // ────────────────────────────────────────────────
-    // Deny everything else by default (important!)
-    // ────────────────────────────────────────────────
     match /{allPaths=**} {
       allow read, write: if false;
     }
@@ -418,11 +363,11 @@ Thanks goes to these wonderful people!
 
 <p align="center">
   <a href="https://github.com/Allan-KellyKinsambwe">
-    <img src="https://github.com/Allan-KellyKinsambwe.png" width="120px;" alt="Allan Kelly Kinsambwe"/>
-    <br />
+    <img src="https://github.com/Allan-KellyKinsambwe.png" width="120px" alt="Allan Kelly Kinsambwe"/>
+    <br>
     <sub><b>Allan Kelly Kinsambwe</b></sub>
   </a>
-  <br />
+  <br>
   <sub>Maintainer & Lead Developer</sub>
 </p>
 
