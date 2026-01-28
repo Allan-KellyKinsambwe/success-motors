@@ -362,7 +362,7 @@ Follow on TikTok: @swiftappcrafting
 Swift App Crafting
 https://www.tiktok.com/@swiftappcrafting?is_from_webapp=1&sender_device=pc
 
-## Contributors
+## Contributors.
 
 Thanks goes to these wonderful people!
 
