@@ -88,11 +88,9 @@ Buy, rent, finance, service, and explore vehicles with ease.
 Full high-quality walkthrough of customer + admin flows (original sharp version, 10.5 MB):
 
 <p align="center">
+  <em>For full source code access, contact us on WhatsApp: <strong>+256 754 67976</strong></em>
+  <br><br>
   <video src="https://github.com/user-attachments/assets/8356c1bd-5903-4b46-98f6-3132b58bd1af" 
-
-https://github.com/user-attachments/assets/8356c1bd-5903-4b46-98f6-3132b58bd1af
-
-
          controls 
          width="80%" 
          autoplay 
@@ -104,7 +102,6 @@ https://github.com/user-attachments/assets/8356c1bd-5903-4b46-98f6-3132b58bd1af
   <br>
   <strong>Inline demo video – plays automatically (muted), click for controls</strong>
 </p>
-
 
 
 ## Tech Stack
