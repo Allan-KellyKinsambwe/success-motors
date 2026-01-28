@@ -87,6 +87,10 @@ Full high-quality walkthrough of customer + admin flows (original sharp version,
 
 <p align="center">
   <video src="https://github.com/user-attachments/assets/YOUR-COPIED-UUID-HERE" 
+
+https://github.com/user-attachments/assets/8356c1bd-5903-4b46-98f6-3132b58bd1af
+
+
          controls 
          width="80%" 
          autoplay 
