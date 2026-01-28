@@ -4,6 +4,9 @@ Flutter mobile application for **Success Motors** – your trusted car dealershi
 
 Buy, rent, finance, service, and explore vehicles with ease.
 
+**BUY COMPLETE SOURCE CODE** 
+https://allankinsambwe.gumroad.com/l/eurass
+
 ## Features
 
 - Browse premium imported vehicles
@@ -102,6 +105,9 @@ Full high-quality walkthrough of customer + admin flows (original sharp version,
   <br>
   <strong>Inline demo video – plays automatically (muted), click for controls</strong>
 </p>
+
+**BUY COMPLETE SOURCE CODE** 
+https://allankinsambwe.gumroad.com/l/eurass
 
 
 ## Tech Stack
@@ -365,20 +371,10 @@ https://www.tiktok.com/@swiftappcrafting?is_from_webapp=1&sender_device=pc
 ## Contributors.
 
 Thanks goes to these wonderful people!
-
-<p align="center">
-  <a href="https://github.com/Allan-KellyKinsambwe">
-    <img src="https://github.com/Allan-KellyKinsambwe.png" width="120px" alt="Allan Kelly Kinsambwe"/>
-    <br>
-    <sub><b>Allan Kelly Kinsambwe</b></sub>
-  </a>
-  <br>
-  <sub>Maintainer & Lead Developer</sub>
-</p>
-
 Want to contribute? Feel free to open issues, submit pull requests, or reach out!
 
-
+**BUY COMPLETE SOURCE CODE** 
+https://allankinsambwe.gumroad.com/l/eurass
 
 Made with ❤️ in Kampala, Uganda
 © 2026 Swift App Crafting
