@@ -82,6 +82,10 @@ Buy, rent, finance, service, and explore vehicles with ease.
   <img src="screenshots/23.png" width="32%" alt="Chat" />
 </p>
 
+Uploading Preview.mp4…
+
+
+
 **Screen Recording**  
 Full high-quality walkthrough of customer + admin flows (original sharp version, 10.5 MB):
 
