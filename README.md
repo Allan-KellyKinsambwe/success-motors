@@ -82,15 +82,13 @@ Buy, rent, finance, service, and explore vehicles with ease.
   <img src="screenshots/23.png" width="32%" alt="Chat" />
 </p>
 
-Uploading Preview.mp4…
-
 
 
 **Screen Recording**  
 Full high-quality walkthrough of customer + admin flows (original sharp version, 10.5 MB):
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/YOUR-COPIED-UUID-HERE" 
+  <video src="https://github.com/user-attachments/assets/8356c1bd-5903-4b46-98f6-3132b58bd1af" 
 
 https://github.com/user-attachments/assets/8356c1bd-5903-4b46-98f6-3132b58bd1af
 
